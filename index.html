@@ -53,13 +53,11 @@
         section h1 {
             font-size: 2rem;
             margin-bottom: 10px;
-            color: #333;
         }
 
         section p {
             font-size: 1.2rem;
             margin-bottom: 20px;
-            color: #555;
         }
 
         section img {
@@ -67,6 +65,14 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+      .toggle{
+        background-color : yellow;
+        
+      }
+      
+      article .toggle {
+        font-size: large;
+      }
 
         /* Стили блока переключения */
         #toggle-section {
@@ -88,6 +94,25 @@
             display: none;
             margin-top: 20px;
         }
+
+        /* Compound selectors и descendant combinator */
+        section h1,
+        section p,
+        #toggle-button {
+            color: #333;
+        }
+
+        section h1 {
+            color: #007bff;
+        }
+
+        section h1 {
+            color: #dc3545;
+        }
+
+        section h1 {
+            color: #28a745;
+        }
     </style>
 </head>
 <body>
@@ -101,7 +126,7 @@
     </nav>
 
     <section id="section1">
-        <h1 style="color: #007bff;">Section 1: Introduction to Programming</h1>
+        <h1>Section 1: Introduction to Programming</h1>
         <p>
             Programming is the process of designing and creating software applications. It involves writing code to instruct computers to perform specific tasks.
         </p>
@@ -109,7 +134,7 @@
     </section>
 
     <section id="section2">
-        <h1 style="color: #dc3545;">Section 2: Popular Programming Languages</h1>
+        <h1>Section 2: Popular Programming Languages</h1>
         <p>
             There are many programming languages, including Python, JavaScript, Java, and C++. Each has its own strengths and use cases.
         </p>
@@ -117,7 +142,7 @@
     </section>
 
     <section id="section3">
-        <h1 style="color: #28a745;">Section 3: Building Web Applications</h1>
+        <h1>Section 3: Building Web Applications</h1>
         <p>
             Web development involves creating websites and web applications. Front-end development focuses on the user interface, while back-end development handles server-side logic.
         </p>
@@ -125,13 +150,13 @@
     </section>
 
     <section id="toggle-section">
-        <h1 style="color: #333;">More information</h1>
+        <h1>More information</h1>
         <p>
             Click the button below to know more.
         </p>
         <button id="toggle-button">Contacts</button>
         <div id="toggle-content">
-            <p style="color: green;">Phone number: +996 221 15 15 24 </p>
+            <p>Phone number: +996 221 15 15 24</p>
         </div>
     </section>
 
@@ -144,15 +169,17 @@
                     event.preventDefault();
                     $('html, body').animate({
                         scrollTop: target.offset().top
-                    }, 1000); // Adjust the animation speed as needed
+                    }, 1000);
                 }
             });
 
-            // Добавьте обработчик клика для кнопки "Contacts"
             $('#toggle-button').on('click', function() {
-                $('#toggle-content').toggle(); // Переключает видимость блока
+                $('#toggle-content').toggle();
             });
         });
     </script>
 </body>
 </html>
+
+    
+    
