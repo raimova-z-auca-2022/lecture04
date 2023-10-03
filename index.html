@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Page Navigation with Toggle Block</title>
+    <style>
+        /* Стили для всей страницы */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Стили навигации */
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Стили разделов */
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        section h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        section img {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили блока переключения */
+        #toggle-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        #toggle-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #toggle-content {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+            <li><a href="#toggle-section">More information</a></li>
+        </ul>
+    </nav>
+
+    <section id="section1">
+        <h1 style="color: #007bff;">Section 1: Introduction to Programming</h1>
+        <p>
+            Programming is the process of designing and creating software applications. It involves writing code to instruct computers to perform specific tasks.
+        </p>
+        <img src="https://interviewerpr.com/wp-content/uploads/2023/03/Coding-Will-Be-Extinct-After-5-Years.png" alt="Computer Image 1">
+    </section>
+
+    <section id="section2">
+        <h1 style="color: #dc3545;">Section 2: Popular Programming Languages</h1>
+        <p>
+            There are many programming languages, including Python, JavaScript, Java, and C++. Each has its own strengths and use cases.
+        </p>
+        <img src="https://www.herzing.edu/sites/default/files/2020-09/it_computer_programming.jpg" alt="Computer Image 2">
+    </section>
+
+    <section id="section3">
+        <h1 style="color: #28a745;">Section 3: Building Web Applications</h1>
+        <p>
+            Web development involves creating websites and web applications. Front-end development focuses on the user interface, while back-end development handles server-side logic.
+        </p>
+        <img src="https://www.zdnet.com/a/img/resize/0a6b0be2f543ddbf313fc83a706b807b77c3c202/2021/07/19/8a337c80-5ed6-43a1-98fb-b981d420890f/programming-languages-shutterstock-1680857539.jpg?auto=webp&fit=crop&height=900&width=1200" alt="Computer Image 3">
+    </section>
+
+    <section id="toggle-section">
+        <h1 style="color: #333;">More information</h1>
+        <p>
+            Click the button below to know more.
+        </p>
+        <button id="toggle-button">Contacts</button>
+        <div id="toggle-content">
+            <p style="color: green;">Phone number: +996 221 15 15 24 </p>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $($(this).attr('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000); // Adjust the animation speed as needed
+                }
+            });
+
+            // Добавьте обработчик клика для кнопки "Contacts"
+            $('#toggle-button').on('click', function() {
+                $('#toggle-content').toggle(); // Переключает видимость блока
+            });
+        });
+    </script>
+</body>
+</html>
